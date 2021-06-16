@@ -1,0 +1,15 @@
+
+<div class="content">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+      <mat-selection-list>
+        <mat-list-item> 
+          <span>Items Name</span>
+          <mat-icon (click)="submit()"  mat-list-icon>delete</mat-icon>
+        </mat-list-item>
+        <mat-list-item formArrayName="items" *ngFor="let item of data; let i = index"> 
+            <mat-checkbox [formControlName]="i" value="{{item.id}}"  (change)="onCheckboxChange($event)" class="example-margin"></mat-checkbox>
+            <span>{{item.name}}</span>      
+        </mat-list-item>
+      </mat-selection-list>
+  </form>
+</div>
